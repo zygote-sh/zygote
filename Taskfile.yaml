@@ -1,0 +1,15 @@
+# yaml-language-server: $schema=https://taskfile.dev/schema.json
+version: "3"
+
+includes:
+  workstation:
+    aliases: [ws]
+    taskfile: .taskfiles/workstation/Taskfile.yaml
+  trunk:
+    aliases: [tr]
+    taskfile: .taskfiles/trunk/Taskfile.yaml
+
+tasks:
+  default:
+    cmd: task -l
+    silent: true

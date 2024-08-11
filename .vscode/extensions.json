@@ -1,0 +1,14 @@
+{
+  "recommendations": [
+    "albert.tabout",
+    "editorconfig.editorconfig",
+    "github.vscode-github-actions",
+    "gruntfuggly.todo-tree",
+    "mikestead.dotenv",
+    "mkhl.direnv",
+    "pkief.material-icon-theme",
+    "task.vscode-task",
+    "trunk.io",
+    "golang.go"
+  ]
+}
