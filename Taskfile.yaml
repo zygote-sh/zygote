@@ -1,6 +1,10 @@
 # yaml-language-server: $schema=https://taskfile.dev/schema.json
 version: "3"
 
+vars:
+  TrunkDir: "{{.ROOT_DIR}}/.trunk"
+  TrunkConfigDir: "{{.TrunkDir}}/configs"
+
 includes:
   workstation:
     aliases: [ws]
@@ -8,6 +12,12 @@ includes:
   trunk:
     aliases: [tr]
     taskfile: .taskfiles/trunk/Taskfile.yaml
+  go:
+    aliases: [g]
+    taskfile: .taskfiles/go/Taskfile.yaml
+  docs:
+    aliases: [docusaurus, d, wiki]
+    taskfile: .taskfiles/docs/Taskfile.yaml
 
 tasks:
   default:

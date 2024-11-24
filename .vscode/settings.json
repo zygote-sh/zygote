@@ -8,9 +8,12 @@
     "--fast"
   ],
   "files.associations": {
-    "*.json5": "json5"
+    "*.json5": "json5",
+    ".ecrc": "json"
   },
   "material-icon-theme.folders.associations": {
-    ".taskfiles": "utils"
+    ".taskfiles": "utils",
+    "internal": "guard",
+    "badger": "database"
   }
 }

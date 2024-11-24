@@ -119,6 +119,8 @@ linters-settings:
     - ^fmt\.Print.*$
     - ^ioutil\..*$
     - ^os\.(DirEntry|ErrExist|ErrNotExist|FileInfo|FileMode|Is.*|Mode.*)$
+    - ^ginkgo\.F[A-Z].*$
+    - {p: ^spew\.Dump$, msg: please do not spew to stdout}
   gci:
     sections:
     - standard

@@ -1,0 +1,50 @@
+version: "3"
+
+vars:
+  GolangciConfigFile: .golangci.yaml
+
+tasks:
+
+  build:
+    desc: Build the project
+    cmds:
+    - goreleaser build --single-target --snapshot
+
+  release:
+    desc: Release a new version
+    cmds:
+    - goreleaser release --snapshot --clean
+
+  mod:
+    desc: Downloads and tidy Go modules
+    cmds:
+    - go mod download
+    - go mod tidy
+
+  clean:
+    desc: Cleans temp files and folders
+    cmds:
+    - rm -rf dist/
+    - rm -rf tmp/
+
+  test:
+    desc: Runs the tests
+    cmds:
+    - ginkgo -r
+
+  lint:
+    desc: Runs golangci-lint
+    aliases: [l]
+    sources:
+    - './**/*.go'
+    - "{{.TrunkConfigDir}}/{{.GolangciConfigFile}}"
+    cmds:
+    - golangci-lint run -c {{.TrunkConfigDir}}/{{.GolangciConfigFile}}
+
+  lint:fix:
+    desc: Runs golangci-lint and fixes any issues
+    sources:
+    - './**/*.go'
+    - "{{.TrunkConfigDir}}/{{.GolangciConfigFile}}"
+    cmds:
+    - golangci-lint run -c {{.TrunkConfigDir}}/{{.GolangciConfigFile}} --fix
